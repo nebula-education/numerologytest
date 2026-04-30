@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foundations of Astrology · Nebula Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Questrial&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+#fs-btn{position:fixed;bottom:16px;right:16px;z-index:9999;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.6);font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;backdrop-filter:blur(6px);}
+#fs-btn:hover{background:rgba(255,255,255,0.16);color:white;}
+:root{
+  --navy:#0c1118;--navy2:#141d2b;
+  --cream:#f0ebe0;--cream-70:rgba(240,235,224,0.70);--cream-40:rgba(240,235,224,0.40);
+  --cream-18:rgba(240,235,224,0.18);--cream-10:rgba(240,235,224,0.10);--cream-06:rgba(240,235,224,0.06);
+  --purple:#7B6FE8;--purple-light:rgba(123,111,232,0.18);--purple-dim:rgba(123,111,232,0.10);
+  --coral:#E8604C;--cyan:#4FC3F7;--magenta:#E040FB;--green:#6FFFB0;--gold:#FFD54F;
+}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--cream);font-family:'Questrial',sans-serif;font-size:16px;line-height:1.75;overflow-x:hidden}
+h1,h2,h3{font-family:'Lora',serif;font-weight:600;line-height:1.2}
+h1{font-size:clamp(2.4rem,6vw,4.5rem)}
+h2{font-size:clamp(1.7rem,3.5vw,2.7rem)}
+h3{font-size:clamp(1.1rem,2vw,1.5rem)}
+p{margin-bottom:1rem}p:last-child{margin-bottom:0}
+em{font-style:italic}strong{color:var(--cream)}
+.container{max-width:1080px;margin:0 auto;padding:0 clamp(1.2rem,5vw,3rem)}
+header{position:sticky;top:0;z-index:100;background:rgba(12,17,24,0.90);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--cream-10);padding:15px 0}
+.header-inner{display:flex;align-items:center;gap:10px}
+.logo-wordmark{font-family:'Questrial',sans-serif;font-size:0.95rem;color:var(--cream);letter-spacing:0.03em}
+.logo-sep{width:1px;height:18px;background:var(--cream-40);margin:0 4px}
+.logo-sub{font-size:0.85rem;color:var(--cream-70)}
+.side-nav{position:fixed;right:22px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:9px;z-index:50}
+@media(max-width:900px){.side-nav{display:none}}
+.side-dot{width:7px;height:7px;border-radius:50%;background:var(--cream-40);border:none;cursor:pointer;padding:0;transition:background 0.3s,transform 0.3s}
+.side-dot.on{background:var(--purple);transform:scale(1.55)}
+.section{padding:80px 0;position:relative;overflow:hidden}
+.section-sm{padding:50px 0;position:relative;overflow:hidden}
+.eyebrow{display:block;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--purple);margin-bottom:0.75rem}
+.section-header{margin-bottom:3rem}
+.section-header p{color:var(--cream-70);max-width:640px;font-size:0.97rem;margin-top:0.8rem}
+.blob{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;z-index:0}
+.section-z{position:relative;z-index:1}
+#s0{min-height:88vh;display:flex;align-items:center;padding:90px 0}
+.hero-layout{display:grid;grid-template-columns:1fr auto;align-items:center;gap:3rem;position:relative;z-index:1}
+@media(max-width:700px){.hero-layout{grid-template-columns:1fr}.hero-deco{display:none}}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--purple);background:var(--purple-light);border:1px solid rgba(123,111,232,0.35);border-radius:100px;padding:6px 16px;margin-bottom:1.6rem}
+.hero-tag::before{content:'✦';font-size:0.65rem}
+.hero-title{margin-bottom:1.5rem}
+.hero-lead{font-size:1.08rem;color:var(--cream-70);max-width:480px;line-height:1.7}
+.hero-deco{width:clamp(180px,22vw,260px);aspect-ratio:3/4.5;background:linear-gradient(155deg,#1e2d48 0%,#0d1828 100%);border-radius:22px;border:1px solid var(--cream-10);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}
+.overview-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:2.5rem}
+@media(max-width:540px){.overview-grid{grid-template-columns:1fr}}
+.ov-item{display:flex;align-items:center;gap:16px;background:var(--cream-06);border:1px solid var(--cream-10);border-radius:14px;padding:17px 22px;transition:background 0.2s}
+.ov-item:hover{background:var(--cream-10)}
+.ov-num{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.88rem;font-weight:700;font-family:'Questrial',sans-serif;flex-shrink:0}
+.n1{background:var(--magenta)}.n2{background:var(--purple)}.n3{background:var(--gold);color:#0c1118}.n4{background:var(--coral)}.n5{background:var(--cyan);color:#0c1118}.n6{background:var(--green);color:#0c1118}
+.ov-label{font-size:0.95rem;color:var(--cream);flex:1}
+.ov-link{cursor:pointer}.ov-link:hover{background:var(--purple-light);border-color:rgba(123,111,232,0.3)}
+.ov-arrow{font-size:0.85rem;color:var(--purple);opacity:0;transition:opacity 0.2s,transform 0.2s;flex-shrink:0}
+.ov-link:hover .ov-arrow{opacity:1;transform:translateY(2px)}
+.div-block{padding:70px 0;background:linear-gradient(110deg,rgba(123,111,232,0.08) 0%,rgba(79,195,247,0.04) 100%);border-top:1px solid var(--cream-10);border-bottom:1px solid var(--cream-10);position:relative;overflow:hidden}
+.div-block h2{position:relative;z-index:1;font-size:clamp(2rem,5vw,3.6rem)}
+.concept-box{background:var(--cream-06);border:1px solid var(--cream-10);border-left:3px solid var(--purple);border-radius:14px;padding:24px 28px;margin-top:2rem}
+.concept-box p{font-size:1rem;color:var(--cream-70);line-height:1.75}
+.layers-grid{display:grid;gap:10px;margin-top:2rem}
+.layer-item{display:flex;align-items:flex-start;gap:16px;background:var(--cream-06);border:1px solid var(--cream-10);border-radius:12px;padding:16px 20px}
+.layer-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;flex-shrink:0;font-family:'Questrial',sans-serif}
+.layer-text{flex:1}
+.layer-title{font-family:'Lora',serif;font-size:0.95rem;color:var(--cream);display:block;margin-bottom:3px}
+.layer-desc{font-size:0.87rem;color:var(--cream-70);line-height:1.55}
+/* COMPARE GRID (2-col side-by-side) */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:2rem}
+@media(max-width:600px){.compare-grid{grid-template-columns:1fr}}
+.compare-card{background:var(--cream-06);border:1px solid var(--cream-10);border-radius:14px;padding:20px 22px}
+.compare-card.cyan{border-top:3px solid var(--cyan)}
+.compare-card.green{border-top:3px solid var(--green)}
+.compare-card.coral{border-top:3px solid var(--coral)}
+.compare-card.gold{border-top:3px solid var(--gold)}
+.compare-card.magenta{border-top:3px solid var(--magenta)}
+.compare-card.purple{border-top:3px solid var(--purple)}
+.compare-card h3{font-family:'Lora',serif;font-size:1.05rem;margin-bottom:8px;color:var(--cream)}
+.compare-card.cyan h3{color:var(--cyan)}
+.compare-card.green h3{color:var(--green)}
+.compare-card.coral h3{color:var(--coral)}
+.compare-card.gold h3{color:var(--gold)}
+.compare-card.magenta h3{color:var(--magenta)}
+.compare-card.purple h3{color:var(--purple)}
+.compare-card p{font-size:0.92rem;color:var(--cream-70);margin:0;line-height:1.65}
+.compare-card .label{display:block;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--cream-40);margin-bottom:6px}
+/* SPREAD GRID (3-card layout for Big Three) */
+.spread-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:2.5rem;align-items:start}
+@media(max-width:700px){.spread-grid{grid-template-columns:1fr}}
+.pos-wrap{display:flex;flex-direction:column;align-items:center}
+.tarot-face{width:100%;aspect-ratio:3/4.5;background:linear-gradient(158deg,#1c2e48 0%,#0d1a2e 100%);border-radius:18px;border:1px solid var(--cream-18);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:14px 12px 18px;cursor:pointer;position:relative;overflow:hidden;transition:transform 0.28s ease,box-shadow 0.28s ease,border-color 0.28s;user-select:none}
+.tarot-face::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 38%,rgba(240,235,224,0.07) 0%,transparent 60%);pointer-events:none}
+.tarot-face:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.5);border-color:var(--cream-40)}
+.pos-wrap.open .tarot-face{border-color:rgba(123,111,232,0.5);box-shadow:0 0 0 1px rgba(123,111,232,0.25),0 16px 36px rgba(0,0,0,0.4)}
+.card-corner-deco{display:flex;justify-content:space-between;width:100%;font-size:0.45rem;letter-spacing:0.22em;color:var(--cream-40)}
+.card-glyph-wrap{flex:1;display:flex;align-items:center;justify-content:center}
+.card-glyph{font-size:2.6rem;opacity:0.65}
+.pos-badge{position:relative;z-index:2;margin-top:-12px;padding:6px 16px;border-radius:100px;font-size:0.76rem;font-weight:600;letter-spacing:0.03em;white-space:nowrap}
+.pos-desc{text-align:center;font-size:0.82rem;color:var(--cream-70);margin-top:12px;padding:0 4px;line-height:1.45}
+.pos-hint{font-size:0.68rem;color:var(--cream-40);margin-top:6px;text-align:center;letter-spacing:0.05em;transition:color 0.3s}
+.pos-wrap.open .pos-hint{color:rgba(240,235,224,0.18)}
+.pos-detail{display:none;background:rgba(123,111,232,0.07);border:1px solid rgba(123,111,232,0.2);border-radius:12px;padding:14px 16px;margin-top:10px;width:100%;font-size:0.84rem;color:var(--cream-70);text-align:left;line-height:1.6}
+.pos-wrap.open .pos-detail{display:block}
+.pos-detail strong{display:block;margin-bottom:6px;font-size:0.87rem}
+/* WHEN BOX */
+.when-box{background:var(--cream-06);border:1px solid var(--cream-10);border-radius:16px;padding:28px 32px;margin-top:3rem}
+@media(max-width:540px){.when-box{padding:20px 18px}}
+.when-label{font-family:'Lora',serif;font-size:1rem;color:var(--cyan);margin-bottom:1rem;display:block;font-weight:600}
+.signal-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.signal-list li{display:flex;align-items:flex-start;gap:10px;font-size:0.93rem;color:var(--cream-70)}
+.sq{font-family:'Lora',serif;font-size:1.3rem;color:var(--purple);line-height:1;flex-shrink:0;margin-top:1px}
+.when-close{margin-top:16px;padding-top:16px;border-top:1px solid var(--cream-10);font-size:0.92rem;color:var(--cream-70)}
+/* MINI INTERACTIVE CARDS (signs / planets / houses) */
+.mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:2rem}
+@media(max-width:900px){.mini-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.mini-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:380px){.mini-grid{grid-template-columns:1fr}}
+.mini-grid.cols-3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:700px){.mini-grid.cols-3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:380px){.mini-grid.cols-3{grid-template-columns:1fr}}
+.mini-grid.cols-5{grid-template-columns:repeat(5,1fr)}
+@media(max-width:900px){.mini-grid.cols-5{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:540px){.mini-grid.cols-5{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:380px){.mini-grid.cols-5{grid-template-columns:1fr}}
+.mini-card{background:var(--cream-06);border:1px solid var(--cream-10);border-radius:14px;padding:16px 14px 14px;cursor:pointer;transition:transform 0.22s,box-shadow 0.22s,border-color 0.22s,background 0.22s;user-select:none;position:relative;overflow:hidden}
+.mini-card:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,0,0,0.4);border-color:var(--cream-18);background:var(--cream-10)}
+.mini-card.open{border-color:rgba(123,111,232,0.45);background:rgba(123,111,232,0.08)}
+.mini-glyph{font-size:1.6rem;line-height:1;margin-bottom:8px;display:block;opacity:0.9}
+.mini-name{font-family:'Lora',serif;font-size:0.95rem;color:var(--cream);display:block;margin-bottom:3px;line-height:1.2}
+.mini-sub{display:block;font-size:0.7rem;color:var(--cream-40);letter-spacing:0.05em}
+.mini-info{display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--cream-10);font-size:0.82rem;color:var(--cream-70);line-height:1.55}
+.mini-card.open .mini-info{display:block}
+.mini-info .meaning{display:block;color:var(--cream);font-size:0.84rem;margin-bottom:4px;font-weight:600}
+.mini-tag{display:inline-block;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:100px;margin-right:4px;margin-bottom:4px;background:var(--cream-10);color:var(--cream-70)}
+.mini-tag.fire{background:rgba(232,96,76,0.18);color:#FF8A75}
+.mini-tag.earth{background:rgba(111,255,176,0.15);color:#8DFFC2}
+.mini-tag.air{background:rgba(79,195,247,0.16);color:#7BD4F9}
+.mini-tag.water{background:rgba(123,111,232,0.18);color:#A89DFF}
+.mini-tag.cardinal{background:rgba(255,213,79,0.15);color:#FFD971}
+.mini-tag.fixed{background:rgba(224,64,251,0.15);color:#EE6FFC}
+.mini-tag.mutable{background:rgba(240,235,224,0.10);color:var(--cream-70)}
+.mini-card.gold{border-color:rgba(255,213,79,0.28);background:rgba(255,213,79,0.045)}
+.mini-card.gold:hover{border-color:rgba(255,213,79,0.45);background:rgba(255,213,79,0.08)}
+.mini-card.gold .mini-name{color:var(--gold)}
+.mini-card.gold .mini-glyph{color:var(--gold);opacity:0.95}
+.mini-hint{font-size:0.66rem;color:var(--cream-40);letter-spacing:0.05em;margin-top:6px;display:block}
+.mini-card.open .mini-hint{color:rgba(240,235,224,0.18)}
+/* SECTION INTRO BLOCKS (clean info layouts) */
+.info-block{background:var(--cream-06);border:1px solid var(--cream-10);border-radius:16px;padding:26px 30px;margin-top:1.5rem}
+@media(max-width:540px){.info-block{padding:20px 18px}}
+.info-block p{font-size:0.95rem;color:var(--cream-70);line-height:1.75}
+.info-block p:not(:last-child){margin-bottom:0.85rem}
+/* ELEMENT / MODALITY GRID */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:1.5rem}
+@media(max-width:700px){.cat-grid{grid-template-columns:repeat(2,1fr)}}
+.cat-grid.cols-3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:540px){.cat-grid.cols-3{grid-template-columns:1fr}}
+.cat-card{background:var(--cream-06);border:1px solid var(--cream-10);border-radius:12px;padding:16px 18px;text-align:left}
+.cat-card .cat-icon{font-size:1.5rem;display:block;margin-bottom:6px;opacity:0.85}
+.cat-card h4{font-family:'Lora',serif;font-size:0.95rem;margin-bottom:4px;font-weight:600}
+.cat-card p{font-size:0.82rem;color:var(--cream-70);line-height:1.55;margin:0}
+.cat-card.fire{border-top:3px solid var(--coral)}.cat-card.fire h4{color:var(--coral)}
+.cat-card.earth{border-top:3px solid var(--green)}.cat-card.earth h4{color:var(--green)}
+.cat-card.air{border-top:3px solid var(--cyan)}.cat-card.air h4{color:var(--cyan)}
+.cat-card.water{border-top:3px solid var(--purple)}.cat-card.water h4{color:var(--purple)}
+.cat-card.cardinal{border-top:3px solid var(--gold)}.cat-card.cardinal h4{color:var(--gold)}
+.cat-card.fixed{border-top:3px solid var(--magenta)}.cat-card.fixed h4{color:var(--magenta)}
+.cat-card.mutable{border-top:3px solid var(--cream-40)}.cat-card.mutable h4{color:var(--cream)}
+/* QUOTE BLOCK */
+.quote-block{background:rgba(123,111,232,0.06);border:1px solid rgba(123,111,232,0.22);border-left:3px solid var(--purple);border-radius:14px;padding:28px 32px;margin-top:2rem;text-align:center}
+.quote-text{font-family:'Lora',serif;font-style:italic;font-size:1.15rem;color:var(--cream);line-height:1.7;margin-bottom:1rem}
+.quote-attr{font-size:0.82rem;color:var(--cream-40);letter-spacing:0.08em}
+/* WHAT-HOW-WHERE SYNTHESIS */
+.formula-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:2rem}
+@media(max-width:640px){.formula-grid{grid-template-columns:1fr}}
+.formula-card{background:var(--cream-06);border:1px solid var(--cream-10);border-radius:14px;padding:24px 22px;text-align:center}
+.formula-card .formula-tag{display:inline-block;font-size:0.66rem;letter-spacing:0.16em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:14px;background:var(--cream-10);color:var(--cream-70)}
+.formula-card.what .formula-tag{background:rgba(255,213,79,0.15);color:var(--gold)}
+.formula-card.how  .formula-tag{background:rgba(123,111,232,0.18);color:var(--purple)}
+.formula-card.where .formula-tag{background:rgba(79,195,247,0.16);color:var(--cyan)}
+.formula-card h3{font-family:'Lora',serif;font-size:1.4rem;margin-bottom:10px;color:var(--cream)}
+.formula-card p{font-size:0.88rem;color:var(--cream-70);line-height:1.6;margin:0}
+/* VIDEO ACCENT */
+.video-section{padding:30px 0;position:relative}
+.video-frame{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--cream-10);background:#000;aspect-ratio:16/9;box-shadow:0 30px 80px rgba(0,0,0,0.45);cursor:pointer}
+.video-frame video{width:100%;height:100%;object-fit:cover;display:block}
+.video-frame::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,17,24,0) 50%,rgba(12,17,24,0.45) 100%);pointer-events:none;z-index:1}
+.video-play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;width:72px;height:72px;border-radius:50%;background:rgba(12,17,24,0.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(240,235,224,0.35);cursor:pointer;transition:opacity 0.4s ease,transform 0.3s ease,background 0.2s,border-color 0.2s;display:flex;align-items:center;justify-content:center;padding:0}
+.video-play-btn::after{content:'';width:0;height:0;border-left:16px solid rgba(240,235,224,0.95);border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
+.video-play-btn:hover{background:rgba(12,17,24,0.72);border-color:rgba(240,235,224,0.55);transform:translate(-50%,-50%) scale(1.06)}
+.video-frame.playing .video-play-btn{opacity:0;transform:translate(-50%,-50%) scale(0.7);pointer-events:none}
+.video-caption{margin-top:16px;text-align:center;font-size:0.92rem;color:rgba(240,235,224,0.78);letter-spacing:0.02em;line-height:1.55;font-style:italic}
+/* FADE ANIMATION */
+footer{border-top:1px solid var(--cream-10);padding:36px 0;text-align:center;color:var(--cream-40);font-size:0.82rem}
+.fade{opacity:0;transform:translateY(22px);transition:opacity 0.62s ease,transform 0.62s ease}
+.fade.in{opacity:1;transform:translateY(0)}
+.fade-d1{transition-delay:0.08s}.fade-d2{transition-delay:0.16s}.fade-d3{transition-delay:0.24s}.fade-d4{transition-delay:0.32s}.fade-d5{transition-delay:0.40s}
+</style>
+</head>
+<body>
+
+<nav class="side-nav" id="sideNav" aria-hidden="true">
+  <button class="side-dot on" title="Intro"></button>
+  <button class="side-dot"    title="Overview"></button>
+  <button class="side-dot"    title="What is Astrology"></button>
+  <button class="side-dot"    title="The Zodiac"></button>
+  <button class="side-dot"    title="Planets"></button>
+  <button class="side-dot"    title="The Big Three"></button>
+  <button class="side-dot"    title="Houses"></button>
+  <button class="side-dot"    title="Synthesis"></button>
+</nav>
+
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <span class="logo-wordmark">nebula</span>
+      <span class="logo-sep"></span>
+      <span class="logo-sub">Academy</span>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section id="s0" class="section">
+  <div class="blob" style="width:600px;height:500px;background:rgba(123,111,232,0.18);right:-160px;top:-80px;"></div>
+  <div class="blob" style="width:360px;height:360px;background:rgba(232,96,76,0.13);right:200px;bottom:-80px;"></div>
+  <div class="container">
+    <div class="hero-layout">
+      <div class="fade">
+        <div class="hero-tag">Module · Foundations</div>
+        <h1 class="hero-title">Foundations<br>of Astrology</h1>
+        <p class="hero-lead">Signs, planets, and houses — three layers that, together, form any birth chart. Here's how they work, what they mean, and how to read them as one system.</p>
+      </div>
+      <div class="hero-deco" aria-hidden="true">
+        <svg width="100%" height="100%" viewBox="0 0 200 300" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(255,213,79,0.6)"/>
+              <stop offset="100%" stop-color="rgba(255,213,79,0)"/>
+            </radialGradient>
+            <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(123,111,232,0.55)"/>
+              <stop offset="100%" stop-color="rgba(123,111,232,0)"/>
+            </radialGradient>
+          </defs>
+
+          <!-- background stars -->
+          <circle cx="22" cy="38" r="0.9" fill="rgba(240,235,224,0.55)"/>
+          <circle cx="178" cy="48" r="0.7" fill="rgba(240,235,224,0.4)"/>
+          <circle cx="32" cy="262" r="0.8" fill="rgba(240,235,224,0.45)"/>
+          <circle cx="172" cy="252" r="0.9" fill="rgba(240,235,224,0.5)"/>
+          <circle cx="14" cy="142" r="0.6" fill="rgba(240,235,224,0.3)"/>
+          <circle cx="186" cy="158" r="0.7" fill="rgba(240,235,224,0.35)"/>
+          <circle cx="60" cy="22" r="0.5" fill="rgba(240,235,224,0.25)"/>
+          <circle cx="146" cy="280" r="0.6" fill="rgba(240,235,224,0.3)"/>
+          <circle cx="110" cy="20" r="0.4" fill="rgba(240,235,224,0.2)"/>
+          <circle cx="44" cy="282" r="0.5" fill="rgba(240,235,224,0.25)"/>
+
+          <!-- corner brackets -->
+          <path d="M10 12 L24 12 M10 12 L10 26" stroke="rgba(240,235,224,0.22)" stroke-width="1" stroke-linecap="round"/>
+          <path d="M190 12 L176 12 M190 12 L190 26" stroke="rgba(240,235,224,0.22)" stroke-width="1" stroke-linecap="round"/>
+          <path d="M10 288 L24 288 M10 288 L10 274" stroke="rgba(240,235,224,0.22)" stroke-width="1" stroke-linecap="round"/>
+          <path d="M190 288 L176 288 M190 288 L190 274" stroke="rgba(240,235,224,0.22)" stroke-width="1" stroke-linecap="round"/>
+
+          <!-- ZODIAC WHEEL · centered at (100, 150) -->
+          <!-- outer rim -->
+          <circle cx="100" cy="150" r="92" stroke="rgba(240,235,224,0.10)" stroke-width="0.7"/>
+          <circle cx="100" cy="150" r="86" stroke="rgba(240,235,224,0.05)" stroke-width="0.5"/>
+          <!-- glyph track -->
+          <circle cx="100" cy="150" r="68" stroke="rgba(240,235,224,0.06)" stroke-width="0.4"/>
+          <!-- inner orbit -->
+          <circle cx="100" cy="150" r="48" stroke="rgba(123,111,232,0.18)" stroke-width="0.5"/>
+          <!-- innermost circle -->
+          <circle cx="100" cy="150" r="22" stroke="rgba(240,235,224,0.07)" stroke-width="0.4"/>
+
+          <!-- 12 division ticks on outer rim -->
+          <g stroke="rgba(240,235,224,0.18)" stroke-width="0.6" stroke-linecap="round">
+            <line x1="100" y1="58" x2="100" y2="64"/>
+            <line x1="146" y1="70.3" x2="143" y2="75.5"/>
+            <line x1="179.7" y1="104" x2="174.5" y2="107"/>
+            <line x1="192" y1="150" x2="186" y2="150"/>
+            <line x1="179.7" y1="196" x2="174.5" y2="193"/>
+            <line x1="146" y1="229.7" x2="143" y2="224.5"/>
+            <line x1="100" y1="242" x2="100" y2="236"/>
+            <line x1="54" y1="229.7" x2="57" y2="224.5"/>
+            <line x1="20.3" y1="196" x2="25.5" y2="193"/>
+            <line x1="8" y1="150" x2="14" y2="150"/>
+            <line x1="20.3" y1="104" x2="25.5" y2="107"/>
+            <line x1="54" y1="70.3" x2="57" y2="75.5"/>
+          </g>
+
+          <!-- cardinal axes (subtle) -->
+          <line x1="100" y1="58" x2="100" y2="242" stroke="rgba(240,235,224,0.04)" stroke-width="0.5"/>
+          <line x1="8" y1="150" x2="192" y2="150" stroke="rgba(240,235,224,0.04)" stroke-width="0.5"/>
+
+          <!-- 12 ZODIAC GLYPHS · radius 78 from center (100,150) -->
+          <g font-family="Lora, serif" font-size="11" text-anchor="middle" fill="rgba(240,235,224,0.62)">
+            <text x="100" y="78">♈</text>
+            <text x="139" y="89.5">♉</text>
+            <text x="167.5" y="118">♊</text>
+            <text x="178" y="154">♋</text>
+            <text x="167.5" y="190">♌</text>
+            <text x="139" y="218.5">♍</text>
+            <text x="100" y="230">♎</text>
+            <text x="61" y="218.5">♏</text>
+            <text x="32.5" y="190">♐</text>
+            <text x="22" y="154">♑</text>
+            <text x="32.5" y="118">♒</text>
+            <text x="61" y="89.5">♓</text>
+          </g>
+
+          <!-- Cardinal glyphs slightly brighter (Aries, Cancer, Libra, Capricorn) -->
+          <g font-family="Lora, serif" font-size="11" text-anchor="middle" fill="rgba(240,235,224,0.85)">
+            <text x="100" y="78">♈</text>
+            <text x="178" y="154">♋</text>
+            <text x="100" y="230">♎</text>
+            <text x="22" y="154">♑</text>
+          </g>
+
+          <!-- BIG THREE on inner orbit (Sun top, Moon bottom, Rising right) -->
+          <!-- Sun (top) with glow -->
+          <circle cx="100" cy="102" r="9" fill="url(#sunGlow)"/>
+          <circle cx="100" cy="102" r="3.2" fill="rgba(255,213,79,0.95)"/>
+          <!-- Moon (bottom-left, ~210°) — using x=100+48*cos(210°), y=150+48*sin(210°) -->
+          <circle cx="58.4" cy="174" r="2.6" fill="rgba(123,111,232,0.85)"/>
+          <!-- Rising (bottom-right, ~330°) -->
+          <circle cx="141.6" cy="174" r="2.6" fill="rgba(232,96,76,0.85)"/>
+
+          <!-- inner radiant center -->
+          <circle cx="100" cy="150" r="14" fill="url(#centerGlow)"/>
+          <circle cx="100" cy="150" r="3" fill="rgba(240,235,224,0.5)"/>
+          <circle cx="100" cy="150" r="1.4" fill="rgba(240,235,224,0.95)"/>
+
+          <!-- subtle accent dots between glyph track and inner orbit -->
+          <circle cx="100" cy="98" r="0.6" fill="rgba(240,235,224,0.4)"/>
+          <circle cx="100" cy="202" r="0.6" fill="rgba(240,235,224,0.4)"/>
+          <circle cx="48" cy="150" r="0.6" fill="rgba(240,235,224,0.4)"/>
+          <circle cx="152" cy="150" r="0.6" fill="rgba(240,235,224,0.4)"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ OVERVIEW ═══════════ -->
+<section id="s1" class="section-sm" style="padding-top:0">
+  <div class="container">
+    <div class="section-header fade">
+      <span class="eyebrow">In this module</span>
+      <h2>Module Overview</h2>
+      <p>Astrology is a system with several layers. Once you understand each layer on its own, the full picture becomes much easier to read.</p>
+    </div>
+    <div class="overview-grid fade fade-d1">
+      <div class="ov-item ov-link" onclick="goToSection('s2')" role="button" tabindex="0">
+        <span class="ov-num n1">1</span>
+        <span class="ov-label">What astrology is</span>
+        <span class="ov-arrow">↓</span>
+      </div>
+      <div class="ov-item ov-link" onclick="goToSection('s3')" role="button" tabindex="0">
+        <span class="ov-num n2">2</span>
+        <span class="ov-label">The zodiac and its signs</span>
+        <span class="ov-arrow">↓</span>
+      </div>
+      <div class="ov-item ov-link" onclick="goToSection('s4')" role="button" tabindex="0">
+        <span class="ov-num n3">3</span>
+        <span class="ov-label">The planets</span>
+        <span class="ov-arrow">↓</span>
+      </div>
+      <div class="ov-item ov-link" onclick="goToSection('s5')" role="button" tabindex="0">
+        <span class="ov-num n4">4</span>
+        <span class="ov-label">The Big Three</span>
+        <span class="ov-arrow">↓</span>
+      </div>
+      <div class="ov-item ov-link" onclick="goToSection('s6')" role="button" tabindex="0">
+        <span class="ov-num n5">5</span>
+        <span class="ov-label">The 12 houses</span>
+        <span class="ov-arrow">↓</span>
+      </div>
+      <div class="ov-item ov-link" onclick="goToSection('s7')" role="button" tabindex="0">
+        <span class="ov-num n6">6</span>
+        <span class="ov-label">Bringing it together</span>
+        <span class="ov-arrow">↓</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ S2 · WHAT IS ASTROLOGY ═══════════ -->
+<div id="s2" class="div-block">
+  <div class="blob" style="width:500px;height:400px;background:rgba(232,96,76,0.13);right:-120px;top:-50%;"></div>
+  <div class="container"><h2 class="fade">What is<br>astrology?</h2></div>
+</div>
+
+<section class="section">
+  <div class="blob" style="width:700px;height:500px;background:rgba(123,111,232,0.10);left:50%;top:-100px;transform:translateX(-50%);"></div>
+  <div class="container section-z">
+    <div class="section-header fade">
+      <span class="eyebrow">Section 01 · Foundation</span>
+      <h2>A symbolic language<br>between sky and life</h2>
+      <p>At its core, astrology is a system that studies the link between movements in the sky — the Sun, the Moon, and the planets — and patterns in human life. Its roots go back to ancient Babylon, Greece, and Egypt.</p>
+    </div>
+    <div class="concept-box fade fade-d1">
+      <p>Astrology works as a <strong>symbolic language</strong> — a way of describing life through symbols and patterns, not through fixed predictions. It helps us notice patterns, personality traits, and timing.</p>
+      <p style="margin-top:1rem">You can think of it as a <em>tool for awareness</em> — a way to recognize your habits, cycles, and what drives you on a deeper level.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-header fade">
+      <span class="eyebrow">Three layers, one system</span>
+      <h2>How a chart is read</h2>
+      <p>Every chart reading combines three layers. Each one answers a different question, and only together do they tell the full story.</p>
+    </div>
+    <div class="layers-grid fade fade-d1">
+      <div class="layer-item">
+        <div class="layer-num" style="background:var(--gold);color:#0c1118">1</div>
+        <div class="layer-text">
+          <span class="layer-title">Planets — <em>what</em> is happening</span>
+          <span class="layer-desc">The active forces. Each planet stands for a specific drive, function, or part of your personality.</span>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num" style="background:var(--purple)">2</div>
+        <div class="layer-text">
+          <span class="layer-title">Signs — <em>how</em> that energy is expressed</span>
+          <span class="layer-desc">The personality flavour. A sign colours and shapes the way a planet acts.</span>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num" style="background:var(--cyan);color:#0c1118">3</div>
+        <div class="layer-text">
+          <span class="layer-title">Houses — <em>where</em> it shows up in life</span>
+          <span class="layer-desc">The life area. Each house points to a specific domain — home, career, relationships, and so on.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ VIDEO ACCENT 1 ═══════════ -->
+<section class="video-section" aria-hidden="true">
+  <div class="container fade">
+    <div class="video-frame">
+      <video src="videos/houses-accent.mp4" poster="videos/poster-houses.jpg" autoplay muted loop playsinline preload="auto"></video>
+      <button class="video-play-btn" type="button" aria-label="Play video"></button>
+    </div>
+    <p class="video-caption">A 360° circle of energy — twelve signs, one continuous system.</p>
+  </div>
+</section>
+
+<!-- ═══════════ S3 · THE ZODIAC ═══════════ -->
+<div id="s3" class="div-block">
+  <div class="blob" style="width:600px;height:400px;background:rgba(255,213,79,0.10);right:-100px;top:-40%;"></div>
+  <div class="blob" style="width:420px;height:420px;background:rgba(79,195,247,0.10);left:-120px;bottom:-30%;"></div>
+  <div class="container"><h2 class="fade">The Zodiac<br>Wheel</h2></div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header fade">
+      <span class="eyebrow">Section 02 · Signs</span>
+      <h2>Twelve types of energy</h2>
+      <p>The zodiac is a 360-degree circle in the sky, divided into 12 equal parts. Each part is one zodiac sign — a "type of energy" with its own personality and its own way of expressing itself. Together, from Aries to Pisces, they form a complete system.</p>
+    </div>
+    <div class="concept-box fade fade-d1">
+      <p>You can think of the zodiac as a <strong>full range of human experience</strong> — different ways we act, feel, and respond to the world. No sign is better or worse than another. Each one simply expresses energy in its own way.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-header fade">
+      <span class="eyebrow">How signs work</span>
+      <h2>Elements and modalities</h2>
+      <p>To understand the signs better, we group them by elements and modalities. An element describes the basic <em>nature</em> of a sign. A modality describes <em>how</em> a sign acts. Combine an element and a modality, and you get a much clearer picture of how a sign actually behaves.</p>
+    </div>
+
+    <span class="eyebrow fade fade-d1" style="margin-top:0.5rem">Four elements</span>
+    <div class="cat-grid fade fade-d1">
+      <div class="cat-card fire">
+        <span class="cat-icon">🔥</span>
+        <h4>Fire</h4>
+        <p>Energy, inspiration, drive. Fire signs act quickly and follow their passion.</p>
+      </div>
+      <div class="cat-card earth">
+        <span class="cat-icon">🌱</span>
+        <h4>Earth</h4>
+        <p>Grounded, practical, steady. Earth turns ideas into something real.</p>
+      </div>
+      <div class="cat-card air">
+        <span class="cat-icon">💨</span>
+        <h4>Air</h4>
+        <p>Intellectual and social. Air processes life through ideas and conversation.</p>
+      </div>
+      <div class="cat-card water">
+        <span class="cat-icon">💧</span>
+        <h4>Water</h4>
+        <p>Emotional and intuitive. Water experiences life through feelings.</p>
+      </div>
+    </div>
+
+    <span class="eyebrow fade fade-d2" style="margin-top:1.8rem;display:block">Three modalities</span>
+    <div class="cat-grid cols-3 fade fade-d2">
+      <div class="cat-card cardinal">
+        <span class="cat-icon">⇢</span>
+        <h4>Cardinal</h4>
+        <p>Initiators. Cardinal signs start things and set them in motion.</p>
+      </div>
+      <div class="cat-card fixed">
+        <span class="cat-icon">◆</span>
+        <h4>Fixed</h4>
+        <p>Builders. Fixed signs keep things steady and build on what's there.</p>
+      </div>
+      <div class="cat-card mutable">
+        <span class="cat-icon">∽</span>
+        <h4>Mutable</h4>
+        <p>Adapters. Mutable signs shift, adjust, and go with the flow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-header fade">
+      <span class="eyebrow">The four families</span>
+      <h2>Fire, Earth, Air, Water</h2>
+      <p>Each element holds three signs. Read together, they show how the zodiac balances vision and action, thinking and feeling.</p>
+    </div>
+    <div class="compare-grid fade fade-d1">
+      <div class="compare-card coral">
+        <span class="label">Element</span>
+        <h3>Fire signs</h3>
+        <p><strong>Aries · Leo · Sagittarius</strong> — energetic, bold, and driven by inspiration. Fire brings the ideas and the spark.</p>
+      </div>
+      <div class="compare-card green">
+        <span class="label">Element</span>
+        <h3>Earth signs</h3>
+        <p><strong>Taurus · Virgo · Capricorn</strong> — grounded, practical, focused on stability and real results. Earth turns ideas into something real.</p>
+      </div>
+      <div class="compare-card cyan">
+        <span class="label">Element</span>
+        <h3>Air signs</h3>
+        <p><strong>Gemini · Libra · Aquarius</strong> — intellectual and social. Air processes life through ideas and conversation.</p>
+      </div>
+      <div class="compare-card purple">
+        <span class="label">Element</span>
+        <h3>Water signs</h3>
+        <p><strong>Cancer · Scorpio · Pisces</strong> — emotional and intuitive. Water experiences life through feelings and inner sensing.</p>
+      </div>
+    </div>
+    <div class="when-box fade fade-d2">
+      <span class="when-label">In short</span>
+      <p style="font-size:0.95rem;color:var(--cream-70);line-height:1.7;margin:0">Fire and earth balance <em>vision and action</em>. Air and water balance <em>thinking and feeling</em>. One pair gives momentum, the other gives meaning — and that's the rhythm of any chart.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-header fade">
+      <span class="eyebrow">All twelve signs</span>
+      <h2>Tap to explore each sign</h2>
+      <p>Element, modality, and the core trait that defines each sign. Tap a card to read more.</p>
+    </div>
+    <div class="mini-grid fade fade-d1">
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">♈</span>
+        <span class="mini-name">Aries</span>
+        <span class="mini-sub">Mar 21 – Apr 19</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Bold initiator</span>
+          <span class="mini-tag fire">Fire</span><span class="mini-tag cardinal">Cardinal</span>
+          <p style="margin-top:6px">Direct, courageous, the first to move. Aries energy starts things — and is happiest when there's something to begin.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">♉</span>
+        <span class="mini-name">Taurus</span>
+        <span class="mini-sub">Apr 20 – May 20</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Grounded builder</span>
+          <span class="mini-tag earth">Earth</span><span class="mini-tag fixed">Fixed</span>
+          <p style="margin-top:6px">Steady, sensual, patient. Taurus turns abstract ideas into something solid you can rely on.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">♊</span>
+        <span class="mini-name">Gemini</span>
+        <span class="mini-sub">May 21 – Jun 20</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Curious connector</span>
+          <span class="mini-tag air">Air</span><span class="mini-tag mutable">Mutable</span>
+          <p style="margin-top:6px">Quick, communicative, endlessly interested. Gemini is the part of us that asks questions and gathers ideas.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">♋</span>
+        <span class="mini-name">Cancer</span>
+        <span class="mini-sub">Jun 21 – Jul 22</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Caring nurturer</span>
+          <span class="mini-tag water">Water</span><span class="mini-tag cardinal">Cardinal</span>
+          <p style="margin-top:6px">Sensitive, protective, deeply attached. Cancer creates the emotional shelter that everything else can grow inside of.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">♌</span>
+        <span class="mini-name">Leo</span>
+        <span class="mini-sub">Jul 23 – Aug 22</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Expressive heart</span>
+          <span class="mini-tag fire">Fire</span><span class="mini-tag fixed">Fixed</span>
+          <p style="margin-top:6px">Warm, generous, theatrical. Leo wants to create, be seen, and bring others into the light it carries.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">♍</span>
+        <span class="mini-name">Virgo</span>
+        <span class="mini-sub">Aug 23 – Sep 22</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Precise refiner</span>
+          <span class="mini-tag earth">Earth</span><span class="mini-tag mutable">Mutable</span>
+          <p style="margin-top:6px">Analytical, helpful, attentive to detail. Virgo perfects the system — small adjustments that make everything work.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">♎</span>
+        <span class="mini-name">Libra</span>
+        <span class="mini-sub">Sep 23 – Oct 22</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Balanced harmoniser</span>
+          <span class="mini-tag air">Air</span><span class="mini-tag cardinal">Cardinal</span>
+          <p style="margin-top:6px">Relational, fair, aesthetically tuned. Libra weighs every side and looks for what brings people back into balance.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">♏</span>
+        <span class="mini-name">Scorpio</span>
+        <span class="mini-sub">Oct 23 – Nov 21</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Intense transformer</span>
+          <span class="mini-tag water">Water</span><span class="mini-tag fixed">Fixed</span>
+          <p style="margin-top:6px">Penetrating, loyal, uncompromising. Scorpio goes beneath the surface and is unafraid of what most people avoid.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">♐</span>
+        <span class="mini-name">Sagittarius</span>
+        <span class="mini-sub">Nov 22 – Dec 21</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Adventurous seeker</span>
+          <span class="mini-tag fire">Fire</span><span class="mini-tag mutable">Mutable</span>
+          <p style="margin-top:6px">Optimistic, philosophical, freedom-loving. Sagittarius is always looking for the bigger meaning behind things.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">♑</span>
+        <span class="mini-name">Capricorn</span>
+        <span class="mini-sub">Dec 22 – Jan 19</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Disciplined climber</span>
+          <span class="mini-tag earth">Earth</span><span class="mini-tag cardinal">Cardinal</span>
+          <p style="margin-top:6px">Ambitious, structured, patient with long-term goals. Capricorn builds the kind of thing that lasts.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">♒</span>
+        <span class="mini-name">Aquarius</span>
+        <span class="mini-sub">Jan 20 – Feb 18</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Independent visionary</span>
+          <span class="mini-tag air">Air</span><span class="mini-tag fixed">Fixed</span>
+          <p style="margin-top:6px">Original, future-facing, community-minded. Aquarius questions the rules and looks for a better system.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">♓</span>
+        <span class="mini-name">Pisces</span>
+        <span class="mini-sub">Feb 19 – Mar 20</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Intuitive dreamer</span>
+          <span class="mini-tag water">Water</span><span class="mini-tag mutable">Mutable</span>
+          <p style="margin-top:6px">Sensitive, imaginative, boundary-soft. Pisces dissolves the edges between self and world, often through art or empathy.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ S4 · PLANETS ═══════════ -->
+<div id="s4" class="div-block">
+  <div class="blob" style="width:560px;height:420px;background:rgba(123,111,232,0.12);right:-120px;top:-40%;"></div>
+  <div class="container"><h2 class="fade">The<br>Planets</h2></div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header fade">
+      <span class="eyebrow">Section 03 · Active forces</span>
+      <h2>What the planets do</h2>
+      <p>If signs describe the personality of energy, planets are the active forces themselves. Each planet stands for a specific drive — a part of you, or a process at work in your life.</p>
+    </div>
+    <div class="concept-box fade fade-d1">
+      <p>A quick note: <strong>the Sun and Moon aren't technically planets</strong>, but in astrology we group them with planets, because they work the same way in a chart.</p>
+      <p style="margin-top:1rem">Planets express themselves through zodiac signs, and they act within specific areas of life called houses. So: <strong>signs show <em>how</em>, planets show <em>what</em>, and houses show <em>where</em>.</strong> This is one of the most important ideas to remember.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-header fade">
+      <span class="eyebrow">Inner planets</span>
+      <h2>Your personal, day-to-day self</h2>
+      <p>The inner planets are the Sun, Moon, Mercury, Venus, and Mars. They move quickly and shape your personal personality the most — which is why they matter so much in personal readings.</p>
+    </div>
+    <div class="mini-grid cols-5 fade fade-d1">
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">☉</span>
+        <span class="mini-name">Sun</span>
+        <span class="mini-sub">Core identity</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Who you are at heart</span>
+          <p>The centre of the chart. The Sun represents your core identity, your sense of self, and the energy you most want to express.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">☾</span>
+        <span class="mini-name">Moon</span>
+        <span class="mini-sub">Inner world</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Emotions and safety</span>
+          <p>The Moon reflects your emotional world — what you need to feel safe, soothed, and at home in yourself.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">☿</span>
+        <span class="mini-name">Mercury</span>
+        <span class="mini-sub">Mind</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">How you think and speak</span>
+          <p>Mercury shows how you take in information, how you reason, and how you share ideas with others.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">♀</span>
+        <span class="mini-name">Venus</span>
+        <span class="mini-sub">Love &amp; values</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">What you find beautiful</span>
+          <p>Venus is about love, attraction, values, and pleasure. She shows what you're drawn to and what you enjoy.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">♂</span>
+        <span class="mini-name">Mars</span>
+        <span class="mini-sub">Drive</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Action and conflict</span>
+          <p>Mars stands for drive, ambition, and how you handle conflict. The "go" energy that turns desire into motion.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-header fade">
+      <span class="eyebrow">Outer planets</span>
+      <h2>The slow, generational forces</h2>
+      <p>The outer planets are Jupiter, Saturn, Uranus, Neptune, and Pluto. They move much more slowly and describe bigger themes — the ones that shape us over years and often shape entire generations.</p>
+    </div>
+    <div class="mini-grid cols-5 fade fade-d1">
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">♃</span>
+        <span class="mini-name">Jupiter</span>
+        <span class="mini-sub">Growth</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Expansion and meaning</span>
+          <p>Jupiter is about growth, luck, and what you believe in. Where Jupiter lands, life feels generous and broadens.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">♄</span>
+        <span class="mini-name">Saturn</span>
+        <span class="mini-sub">Structure</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Discipline and time</span>
+          <p>Saturn stands for structure, discipline, and long-term lessons. The teacher of the chart — slow, demanding, but lasting.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">♅</span>
+        <span class="mini-name">Uranus</span>
+        <span class="mini-sub">Change</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Surprise and freedom</span>
+          <p>Uranus brings change, surprises, and new ideas. The disruptor — where the old patterns break to make room for the next thing.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">♆</span>
+        <span class="mini-name">Neptune</span>
+        <span class="mini-sub">Dreams</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Imagination and illusion</span>
+          <p>Neptune is linked to dreams, imagination, and illusions. The most subtle planet — softening the edges, sometimes blurring them.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">♇</span>
+        <span class="mini-name">Pluto</span>
+        <span class="mini-sub">Power</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Deep transformation</span>
+          <p>Pluto stands for deep transformation and hidden power. The slow burn that reshapes us from the inside out.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ S5 · BIG THREE ═══════════ -->
+<div id="s5" class="div-block">
+  <div class="blob" style="width:480px;height:420px;background:rgba(255,213,79,0.12);left:-100px;top:-30%;"></div>
+  <div class="blob" style="width:420px;height:420px;background:rgba(232,96,76,0.10);right:-80px;bottom:-30%;"></div>
+  <div class="container"><h2 class="fade">The Big<br>Three</h2></div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header fade">
+      <span class="eyebrow">Section 04 · The chart's anchor</span>
+      <h2>Sun · Moon · Ascendant</h2>
+      <p>One of the most important ideas in astrology is the Big Three — the three most important points in your chart. Together, these three form the foundation of your personality, and they're usually the first things we look at in a chart.</p>
+    </div>
+
+    <div class="spread-grid fade fade-d1">
+      <div class="pos-wrap" id="pos-bt1">
+        <div class="tarot-face" onclick="togglePos('pos-bt1')" role="button" aria-expanded="false" tabindex="0">
+          <div class="card-corner-deco"><span>I</span><span>SUN</span></div>
+          <div class="card-glyph-wrap"><div class="card-glyph">☉</div></div>
+          <div class="card-corner-deco"><span>SUN</span><span>I</span></div>
+        </div>
+        <div class="pos-badge" style="background:var(--gold);color:#0c1118">Sun</div>
+        <div class="pos-desc">Your core identity — who you are at heart.</div>
+        <div class="pos-hint">tap to reveal</div>
+        <div class="pos-detail">
+          <strong>What it shows</strong>
+          The Sun is the centre of you — the energy you're most consciously becoming, the part of you that feels most "you" when you're being honest.
+        </div>
+      </div>
+      <div class="pos-wrap" id="pos-bt2">
+        <div class="tarot-face" onclick="togglePos('pos-bt2')" role="button" aria-expanded="false" tabindex="0">
+          <div class="card-corner-deco"><span>II</span><span>MOON</span></div>
+          <div class="card-glyph-wrap"><div class="card-glyph">☾</div></div>
+          <div class="card-corner-deco"><span>MOON</span><span>II</span></div>
+        </div>
+        <div class="pos-badge" style="background:var(--purple)">Moon</div>
+        <div class="pos-desc">Your emotional needs and inner world.</div>
+        <div class="pos-hint">tap to reveal</div>
+        <div class="pos-detail">
+          <strong>What it shows</strong>
+          The Moon reflects what you need to feel safe — your emotional default, your private self, the part of you that comes out when no one's watching.
+        </div>
+      </div>
+      <div class="pos-wrap" id="pos-bt3">
+        <div class="tarot-face" onclick="togglePos('pos-bt3')" role="button" aria-expanded="false" tabindex="0">
+          <div class="card-corner-deco"><span>III</span><span>RISING</span></div>
+          <div class="card-glyph-wrap"><div class="card-glyph">↑</div></div>
+          <div class="card-corner-deco"><span>RISING</span><span>III</span></div>
+        </div>
+        <div class="pos-badge" style="background:var(--coral)">Ascendant</div>
+        <div class="pos-desc">How you come across — your first impression.</div>
+        <div class="pos-hint">tap to reveal</div>
+        <div class="pos-detail">
+          <strong>What it shows</strong>
+          The Ascendant — also called the Rising sign — is the zodiac sign that was rising on the horizon at the moment you were born. It shows how others first read you, and the style you instinctively meet the world with.
+        </div>
+      </div>
+    </div>
+
+    <div class="when-box fade fade-d2">
+      <span class="when-label">Why these three</span>
+      <ul class="signal-list">
+        <li><span class="sq">"</span><span>The <strong>Sun</strong> is the conscious self — your direction.</span></li>
+        <li><span class="sq">"</span><span>The <strong>Moon</strong> is the inner self — your needs.</span></li>
+        <li><span class="sq">"</span><span>The <strong>Ascendant</strong> is the social self — your style.</span></li>
+      </ul>
+      <p class="when-close">Together, they tell you the most about a person before you read anything else. Get fluent in the Big Three first — the rest of the chart starts making sense from there.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ VIDEO ACCENT 2 ═══════════ -->
+<section class="video-section" aria-hidden="true">
+  <div class="container fade">
+    <div class="video-frame">
+      <video src="videos/zodiac-accent.mp4" poster="videos/poster-zodiac.jpg" autoplay muted loop playsinline preload="auto"></video>
+      <button class="video-play-btn" type="button" aria-label="Play video"></button>
+    </div>
+    <p class="video-caption">Twelve sections of life — calculated from your exact birth time.</p>
+  </div>
+</section>
+
+<!-- ═══════════ S6 · HOUSES ═══════════ -->
+<div id="s6" class="div-block">
+  <div class="blob" style="width:520px;height:420px;background:rgba(79,195,247,0.10);right:-120px;top:-40%;"></div>
+  <div class="blob" style="width:380px;height:380px;background:rgba(111,255,176,0.08);left:-80px;bottom:-30%;"></div>
+  <div class="container"><h2 class="fade">The 12<br>Houses</h2></div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header fade">
+      <span class="eyebrow">Section 05 · Houses</span>
+      <h2>Where the energy shows up</h2>
+      <p>A house is one of twelve sections of a birth chart. Each house is tied to a specific area of life — like home, career, or relationships. Houses give context to everything else in the chart.</p>
+    </div>
+    <div class="concept-box fade fade-d1">
+      <p>Houses are calculated from your <strong>exact birth time</strong>, which is why accurate birth data really matters. A few minutes' difference can shift the entire house structure — and with it, where each planet's energy lands in your life.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-header fade">
+      <span class="eyebrow">Key houses to know first</span>
+      <h2>The four anchors</h2>
+      <p>Some houses are especially useful to know early on. These four often point to the main themes in a person's life.</p>
+    </div>
+    <div class="compare-grid fade fade-d1">
+      <div class="compare-card gold">
+        <span class="label">House 1</span>
+        <h3>The Self</h3>
+        <p>Self, appearance, and first impressions. How you show up at the door.</p>
+      </div>
+      <div class="compare-card purple">
+        <span class="label">House 4</span>
+        <h3>Home &amp; Roots</h3>
+        <p>Home, family, and your emotional roots. Where you come from, and what makes a place feel like yours.</p>
+      </div>
+      <div class="compare-card cyan">
+        <span class="label">House 7</span>
+        <h3>Partnerships</h3>
+        <p>Close relationships and one-on-one connections. Who shows up across from you in life.</p>
+      </div>
+      <div class="compare-card coral">
+        <span class="label">House 10</span>
+        <h3>Career &amp; Reputation</h3>
+        <p>Career, public image, and how the world sees your work. The role you grow into over time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-header fade">
+      <span class="eyebrow">All twelve houses</span>
+      <h2>The full map of life areas</h2>
+      <p>Each house covers a domain. Tap any card to read what it represents.</p>
+    </div>
+    <div class="mini-grid fade fade-d1">
+      <div class="mini-card gold" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">1</span>
+        <span class="mini-name">First House</span>
+        <span class="mini-sub">Self · Body · First impression</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Who you appear to be</span>
+          <p>Your physical presence, the way you walk into a room, and how others first read you. Closely linked to the Ascendant.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">2</span>
+        <span class="mini-name">Second House</span>
+        <span class="mini-sub">Money · Values · Resources</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">What you build and own</span>
+          <p>Your relationship with money, possessions, and personal worth — including the values that guide what you spend energy on.</p>
+        </div>
+      </div>
+      <div class="mini-card gold" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">3</span>
+        <span class="mini-name">Third House</span>
+        <span class="mini-sub">Mind · Siblings · Local</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">How you communicate</span>
+          <p>Daily communication, learning, siblings, neighbours, short trips — the world close around you.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">4</span>
+        <span class="mini-name">Fourth House</span>
+        <span class="mini-sub">Home · Family · Roots</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Where you come from</span>
+          <p>Home, family, ancestry, and emotional roots. The private self and the place that shaped you.</p>
+        </div>
+      </div>
+      <div class="mini-card gold" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">5</span>
+        <span class="mini-name">Fifth House</span>
+        <span class="mini-sub">Creativity · Romance · Play</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">What you create</span>
+          <p>Self-expression, romance, children, and play — anything that lets you produce something uniquely yours.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">6</span>
+        <span class="mini-name">Sixth House</span>
+        <span class="mini-sub">Work · Health · Routine</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Your daily craft</span>
+          <p>Day-to-day work, habits, health, and the small routines that quietly shape a life.</p>
+        </div>
+      </div>
+      <div class="mini-card gold" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">7</span>
+        <span class="mini-name">Seventh House</span>
+        <span class="mini-sub">Partnerships · Marriage</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Who stands across from you</span>
+          <p>Significant one-on-one relationships — partnerships, marriage, close collaborations, and known opponents.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">8</span>
+        <span class="mini-name">Eighth House</span>
+        <span class="mini-sub">Depth · Shared · Intimacy</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">What you transform</span>
+          <p>Deep intimacy, shared resources, hidden things, and the cycles of endings and rebirth in a life.</p>
+        </div>
+      </div>
+      <div class="mini-card gold" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">9</span>
+        <span class="mini-name">Ninth House</span>
+        <span class="mini-sub">Travel · Belief · Higher mind</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">What you seek</span>
+          <p>Long-distance travel, philosophy, higher learning, and the worldview you build over time.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">10</span>
+        <span class="mini-name">Tenth House</span>
+        <span class="mini-sub">Career · Reputation · Public</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">What you're known for</span>
+          <p>Career, public image, vocation, and the role you grow into in the world's eyes.</p>
+        </div>
+      </div>
+      <div class="mini-card gold" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">11</span>
+        <span class="mini-name">Eleventh House</span>
+        <span class="mini-sub">Friends · Community · Hopes</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">Who you build with</span>
+          <p>Friendships, networks, communities, and the long-term hopes you move toward together.</p>
+        </div>
+      </div>
+      <div class="mini-card" onclick="toggleMini(this)" role="button" tabindex="0">
+        <span class="mini-glyph">12</span>
+        <span class="mini-name">Twelfth House</span>
+        <span class="mini-sub">Solitude · Spirit · Unconscious</span>
+        <span class="mini-hint">tap to reveal</span>
+        <div class="mini-info">
+          <span class="meaning">What's beneath the surface</span>
+          <p>Solitude, retreat, spirituality, and the unconscious — what works on us behind the scenes of daily life.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ S7 · SYNTHESIS ═══════════ -->
+<div id="s7" class="div-block">
+  <div class="blob" style="width:540px;height:420px;background:rgba(123,111,232,0.13);left:-100px;top:-40%;"></div>
+  <div class="blob" style="width:420px;height:420px;background:rgba(111,255,176,0.10);right:-80px;bottom:-30%;"></div>
+  <div class="container"><h2 class="fade">Bringing<br>It Together</h2></div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header fade">
+      <span class="eyebrow">Section 06 · Reading the chart</span>
+      <h2>The full astrological story</h2>
+      <p>In astrology, we always read a chart as a combination of three layers. When you combine them, you start to see the full story. This is the moment when astrology turns from theory into real chart reading.</p>
+    </div>
+
+    <div class="formula-grid fade fade-d1">
+      <div class="formula-card what">
+        <span class="formula-tag">Planets</span>
+        <h3>What</h3>
+        <p>The active force. What is happening — which drive, which function is at play.</p>
+      </div>
+      <div class="formula-card how">
+        <span class="formula-tag">Signs</span>
+        <h3>How</h3>
+        <p>The flavour. How that energy is being expressed — its tone, style, and personality.</p>
+      </div>
+      <div class="formula-card where">
+        <span class="formula-tag">Houses</span>
+        <h3>Where</h3>
+        <p>The life area. Where in life this is showing up — career, home, relationships, and so on.</p>
+      </div>
+    </div>
+
+    <div class="quote-block fade fade-d2">
+      <p class="quote-text">"Your birth chart is like a cosmic map. It reflects your patterns, your potential, and the way different parts of your personality interact."</p>
+      <span class="quote-attr">— Foundations of Astrology</span>
+    </div>
+
+    <div class="info-block fade fade-d3" style="margin-top:1.5rem">
+      <p><strong>Where to go from here.</strong> Signs, planets, and houses don't work separately — they work together as one system. As you keep learning, focus on practicing how to combine all three layers. That's where real understanding — and confident chart reading — begins.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">Nebula Academy · Foundations of Astrology · Signs · Planets · Houses</div>
+</footer>
+
+<button id="fs-btn" title="Fullscreen">⛶</button>
+
+<script>
+/* ─── 1. Smooth scroll to section ─── */
+function goToSection(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+/* ─── 2. Toggle a Big-Three card (pos-wrap) ─── */
+function togglePos(id) {
+  const wrap = document.getElementById(id);
+  if (!wrap) return;
+  wrap.classList.toggle('open');
+  const face = wrap.querySelector('.tarot-face');
+  if (face) face.setAttribute('aria-expanded', wrap.classList.contains('open'));
+}
+
+/* ─── 3. Toggle a mini card (sign / planet / house) ─── */
+function toggleMini(el) {
+  el.classList.toggle('open');
+  const hint = el.querySelector('.mini-hint');
+  if (hint) hint.textContent = el.classList.contains('open') ? 'tap to close' : 'tap to reveal';
+}
+
+/* ─── 4. Fade-in observer ─── */
+const fadeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); fadeObserver.unobserve(e.target); } });
+}, {threshold:0.10});
+document.querySelectorAll('.fade').forEach(el => fadeObserver.observe(el));
+
+/* ─── 5. Side-nav active dot on scroll ─── */
+const sectionIds = ['s0','s1','s2','s3','s4','s5','s6','s7'];
+const dots = document.querySelectorAll('.side-dot');
+dots.forEach((dot, i) => { dot.addEventListener('click', () => goToSection(sectionIds[i])); });
+
+function syncNav() {
+  const y = window.scrollY + window.innerHeight * 0.4;
+  let activeIndex = 0;
+  sectionIds.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (el && el.offsetTop <= y) activeIndex = i;
+  });
+  dots.forEach((d, i) => d.classList.toggle('on', i === activeIndex));
+}
+window.addEventListener('scroll', syncNav, {passive:true});
+syncNav();
+
+/* ─── 6. Keyboard support for toggles ─── */
+document.querySelectorAll('.tarot-face').forEach(el => {
+  el.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      const wrap = el.closest('.pos-wrap');
+      if (wrap) togglePos(wrap.id);
+    }
+  });
+});
+document.querySelectorAll('.mini-card').forEach(el => {
+  el.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMini(el); }
+  });
+});
+document.querySelectorAll('.ov-link').forEach(el => {
+  el.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+  });
+});
+
+/* ─── 7. Fullscreen toggle ─── */
+(function() {
+  const btn = document.getElementById('fs-btn');
+  btn.addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+    } else if (document.exitFullscreen) {
+      document.exitFullscreen();
+    }
+  });
+})();
+
+/* ─── 8. Robust video playback with play-button overlay ─── */
+document.querySelectorAll('.video-frame').forEach(frame => {
+  const v = frame.querySelector('video');
+  if (!v) return;
+  v.muted = true;
+  v.playsInline = true;
+
+  const tryPlay = () => v.play().catch(() => {});
+
+  // Try to start as soon as possible
+  tryPlay();
+  v.addEventListener('loadeddata', tryPlay);
+  v.addEventListener('canplay', tryPlay);
+
+  // Sync .playing class with actual playback state (controls overlay button visibility)
+  v.addEventListener('play',    () => frame.classList.add('playing'));
+  v.addEventListener('playing', () => frame.classList.add('playing'));
+  v.addEventListener('pause',   () => frame.classList.remove('playing'));
+  v.addEventListener('ended',   () => frame.classList.remove('playing'));
+  v.addEventListener('waiting', () => frame.classList.remove('playing'));
+
+  // Click anywhere on the frame (or on the play button) -> play
+  frame.addEventListener('click', tryPlay);
+});
+
+// Retry play on first user interaction with the page (covers strict autoplay policies)
+const kickVideos = () => {
+  document.querySelectorAll('.video-frame video').forEach(v => v.play().catch(() => {}));
+};
+window.addEventListener('scroll',     kickVideos, {passive:true});
+window.addEventListener('click',      kickVideos, {passive:true});
+window.addEventListener('touchstart', kickVideos, {passive:true});
+window.addEventListener('keydown',    kickVideos);
+</script>
+</body>
+</html>
